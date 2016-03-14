@@ -1,0 +1,25 @@
+{
+  "name": "metabase",
+  "type":"library",
+  "repo": "devlucid/metabase",
+  "description": "",
+  "authors": [
+      {
+          "name":     "Mike Thorn",
+          "email":    "mthorn@devlucid.com"
+      }
+  ],
+  "maintainers": [
+      {
+          "name":     "Mike Thorn",
+          "email":    "mthorn@devlucid.com"
+      }
+  ],
+  "autoload": {
+      "psr-4": {"DevLucid\\": "/src/php/"}
+  },
+  "autoload-dev": {
+      "psr-4": {"DevLucid\\": "/src/php/"}
+  },
+  "license": "MIT"
+}
