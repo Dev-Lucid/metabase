@@ -11,7 +11,6 @@ class MetaBase
     {
         $this->pdo = $pdo;
         $this->driver = $this->pdo->getAttribute(\PDO::ATTR_DRIVER_NAME);
-        echo("Driver: ".$this->driver."\n");
     }
 
     public function setSchema(string $newSchema)
@@ -74,7 +73,41 @@ class MetaBase
                 } else {
                     $isView = $this->isView($name);
                     if($isView === true){
+                        $query = "select * from $name limit 1;";
+                        $statement = $this->pdo->query($query);
+                        $columns = $statement->fetch(\PDO::FETCH_ASSOC);
 
+                        $finalCols = [];
+                        $index = 0;
+                        foreach ($columns as $key=>$value) {
+                            $newCol = [
+                                'index'=>null,
+                                'name'=>null,
+                                'type'=>null,
+                                'default'=>null,
+                                'notnull'=>null,
+                                'max'=>null,
+                            ];
+                            $newCol['index'] = $index;
+                            $newCol['name'] = $key;
+
+                            if (is_string($value)) {
+                                $newCol['type'] = 'string';
+                            } elseif (is_int($value)) {
+                                $newCol['type'] = 'int';
+                            } elseif (is_float($value)) {
+                                $newCol['type'] = 'float';
+                            } elseif (is_bool($value)) {
+                                $newCol['type'] = 'bool';
+                            } else {
+                                $newCol['type'] = 'string';
+                            }
+                            $finalCols[] = $newCol;
+                            $index++;
+                        }
+
+                        return $finalCols;
+                        
                     } else {
                         throw new \Exception('Could not find table or view named '.$name);
                     }
