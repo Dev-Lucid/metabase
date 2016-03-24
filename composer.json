@@ -16,10 +16,10 @@
       }
   ],
   "autoload": {
-      "psr-4": {"DevLucid\\": "/src/php/"}
+      "psr-4": {"Lucid\\Library\\Metabase\\": "/src/php/"}
   },
   "autoload-dev": {
-      "psr-4": {"DevLucid\\": "/src/php/"}
+      "psr-4": {"Lucid\\Library\\Metabase\\": "/src/php/"}
   },
   "license": "MIT"
 }

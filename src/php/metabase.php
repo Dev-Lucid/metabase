@@ -1,6 +1,6 @@
 <?php
 
-namespace DevLucid;
+namespace Lucid\Library\Metabase;
 
 class MetaBase
 {
@@ -107,7 +107,7 @@ class MetaBase
                         }
 
                         return $finalCols;
-                        
+
                     } else {
                         throw new \Exception('Could not find table or view named '.$name);
                     }
