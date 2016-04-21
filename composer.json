@@ -1,8 +1,7 @@
 {
-  "name": "metabase",
+  "name": "dev-lucid/metabase",
   "type":"library",
-  "repo": "devlucid/metabase",
-  "description": "",
+  "description": "A library for introspecting a database. Works on sqlite3 and postgresql, and hopefully soon mysql.",
   "authors": [
       {
           "name":     "Mike Thorn",
@@ -18,8 +17,9 @@
   "autoload": {
       "psr-4": {"Lucid\\Library\\Metabase\\": "/src/php/"}
   },
-  "autoload-dev": {
-      "psr-4": {"Lucid\\Library\\Metabase\\": "/src/php/"}
+  "require": {
+      "php": "^7.0",
+      "ext-pdo": "*"
   },
   "license": "MIT"
 }
