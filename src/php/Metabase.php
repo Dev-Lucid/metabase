@@ -2,7 +2,7 @@
 
 namespace Lucid\Library\Metabase;
 
-class MetaBase
+class Metabase
 {
     private $pdo = null;
     private $driver = null;
